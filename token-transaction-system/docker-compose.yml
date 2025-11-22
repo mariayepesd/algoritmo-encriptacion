@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: token-transaction-system:latest
+    container_name: token_server
+    networks:
+      transaction_network:
+        ipv4_address: 172.18.0.2
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    command: ["server"]
+    labels:
+      - "app=token-transaction-system"
+      - "component=server"
+
+  client:
+    image: token-transaction-system:latest
+    container_name: token_client
+    networks:
+      transaction_network:
+        ipv4_address: 172.18.0.3
+    depends_on:
+      - server
+    stdin_open: true
+    tty: true
+    extra_hosts:
+      - "token_server:172.18.0.2"
+      - "server:172.18.0.2"
+    command: ["client", "token_server"]
+    restart: "no"
+    labels:
+      - "app=token-transaction-system"
+      - "component=client"
+
+networks:
+  transaction_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.0.0/16
+          gateway: 172.18.0.1
+    labels:
+      - "app=token-transaction-system"
