@@ -63,7 +63,7 @@ El proyecto está diseñado para ejecutarse **automáticamente** usando Docker C
 
 ```bash
 git clone https://github.com/mariayepesd/algoritmo-encriptacion.git
-cd \token-transaction-system\algoritmo-encriptacion
+cd algoritmo-encriptacion\token-transaction-system
 ```
 
 ### 2. Construir y ejecutar
