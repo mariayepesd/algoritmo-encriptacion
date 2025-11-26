@@ -3,7 +3,7 @@
 ## Elaborado por:
 
 Jacobo Osorio
-Vannesa Alfaro
+Vanessa Alfaro
 Maria José Yepes
 
 Este proyecto implementa un **sistema de validación de tokens para ejecutar transacciones** usando una arquitectura **Cliente–Servidor** desarrollada en **C++** y ejecutada mediante **Docker**. El objetivo es simular un entorno donde un cliente solicita un token, el servidor lo genera y valida, y luego el cliente usa ese token para realizar una transacción.
@@ -63,7 +63,7 @@ El proyecto está diseñado para ejecutarse **automáticamente** usando Docker C
 
 ```bash
 git clone https://github.com/mariayepesd/algoritmo-encriptacion.git
-cd algoritmo-encriptacion
+cd \token-transaction-system\algoritmo-encriptacion
 ```
 
 ### 2. Construir y ejecutar
